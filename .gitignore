@@ -1,0 +1,4 @@
+./data/*.json
+./data/*.pkl
+./data/crawl-300d-2M.vec
+./models/
