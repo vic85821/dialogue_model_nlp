@@ -14,7 +14,7 @@ class BasePredictor():
                  max_iters_in_epoch=1e20,
                  grad_accumulate_steps=1,
                  n_workers=4):
-        
+
         self.batch_size = batch_size
         self.max_epochs = max_epochs
         self.valid = valid
@@ -23,7 +23,7 @@ class BasePredictor():
         self.max_iters_in_epoch = max_iters_in_epoch
         self.grad_accumulate_steps = grad_accumulate_steps
         self.n_workers = n_workers
-        
+
         if device is not None:
             self.device = torch.device(device)
         else:
@@ -38,7 +38,7 @@ class BasePredictor():
 
             # train and evaluate train score
             print('training %i' % self.epoch)
-            dataloader = DataLoader(dataset=data, 
+            dataloader = DataLoader(dataset=data,
                                     batch_size=self.batch_size,
                                     collate_fn=collate_fn,
                                     shuffle=True,
@@ -50,7 +50,7 @@ class BasePredictor():
             # evaluate valid score
             if self.valid is not None:
                 print('evaluating %i' % self.epoch)
-                dataloader = DataLoader(dataset=self.valid, 
+                dataloader = DataLoader(dataset=self.valid,
                                         batch_size=self.batch_size,
                                         collate_fn=collate_fn,
                                         shuffle=False,
@@ -79,7 +79,7 @@ class BasePredictor():
         self.model.eval()
 
         # make dataloader
-        dataloader = DataLoader(dataset=data, 
+        dataloader = DataLoader(dataset=data,
                                 batch_size=self.batch_size,
                                 collate_fn=collate_fn,
                                 shuffle=False,
@@ -102,7 +102,7 @@ class BasePredictor():
         }, path)
 
     def load(self, path):
-        checkpoint = torch.load(path)
+        checkpoint = torch.load(path, map_location=self.device)
         self.epoch = checkpoint['epoch']
         self.model.load_state_dict(checkpoint['model'])
         self.optimizer.load_state_dict(checkpoint['optimizer'])
@@ -142,7 +142,7 @@ class BasePredictor():
                 # accumulate gradient - zero_grad
                 if i % self.grad_accumulate_steps == 0:
                     self.optimizer.zero_grad()
-                
+
                 batch_loss.backward()
 
                 # accumulate gradient - step
