@@ -21,6 +21,7 @@ dependencies:
   - libgcc-ng=8.2.0=hdf63c60_1
   - libgfortran-ng=7.3.0=hdf63c60_0
   - libstdcxx-ng=8.2.0=hdf63c60_1
+  - matplotlib
   - mkl=2019.1=144
   - mkl_fft=1.0.10=py37ha843d7b_0
   - mkl_random=1.0.2=py37hd81dba3_0
@@ -44,6 +45,7 @@ dependencies:
   - readline=7.0=h7b6447c_5
   - regex=2018.07.11=py37h14c3975_0
   - requests=2.21.0=py37_0
+  - seaborn
   - setuptools=40.8.0=py37_0
   - six=1.12.0=py37_0
   - spacy=2.0.12=py37h962f231_0
@@ -59,7 +61,5 @@ dependencies:
   - wrapt=1.10.11=py37h14c3975_2
   - xz=5.2.4=h14c3975_4
   - zlib=1.2.11=h7b6447c_3
-  - pip:
-    - en-core-web-sm==2.0.0
 prefix: /home/master/07/vic85821/anaconda3/envs/nlp
 
