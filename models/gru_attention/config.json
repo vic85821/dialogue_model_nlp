@@ -1,0 +1,25 @@
+{
+    "arch": "GruAttentionNet",
+    "train": "../data/train.pkl",
+    "test": "../data/test.pkl",
+    "model": {
+        "valid": "../data/valid.pkl",
+        "embedding": "../data/embedding.pkl",
+         
+        "batch_size": 128,
+        "max_epochs": 50,
+        "learning_rate": 1e-3,
+        "hidden_size": 128,
+        "output_size": 1,
+        "hidden_layer": 1,
+        "bidirectional": true,
+        "loss": "BCELoss",
+        "n_workers": 4
+    },
+    "callbacks": {
+        "mode": "max",
+        "monitor": "Recall@10",
+        "verbose": 1,
+        "early_stop": 7
+    }
+}

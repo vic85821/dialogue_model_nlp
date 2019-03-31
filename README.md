@@ -24,6 +24,14 @@ So there are these files in the data folder as follow:
 ```
 
 ### Train the model
+* prepare the `models` folder 
+* create experiment folder, e.g. `lstm`
+* add the `config.json` which contains the experiment settings into the experiment folder
+```
+    ./models/lstm/config.json
+```
+
+run the training process
 ```
     cd src
     bash preprocess.sh # preprocess the json to pickle 
@@ -45,4 +53,14 @@ Use `gdrive` package (https://github.com/gdrive-org/gdrive) to download the pre-
 
 
 ## Attention Score Plot
+* there should be a `best` folder in the `models`
+* need to preprocess the data to the `pkl` format
+* need to prepare `embedding.pkl` which contains the englist word embedding info
 
+```
+    cd src
+    python visual.py data_path, embed_path
+    
+    # example
+    python visual.py ../data/valid.pkl ./embedding.pkl
+```
