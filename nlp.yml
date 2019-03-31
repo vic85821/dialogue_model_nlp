@@ -61,7 +61,5 @@ dependencies:
   - wrapt=1.10.11=py37h14c3975_2
   - xz=5.2.4=h14c3975_4
   - zlib=1.2.11=h7b6447c_3
-  - pip:
-    - en-core-web-sm==2.0.0
 prefix: /home/master/07/vic85821/anaconda3/envs/nlp
 
